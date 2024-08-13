@@ -36,10 +36,10 @@ const resetBtnEl = document.querySelector('restart')
 /*-------------------------------- Functions --------------------------------*/
 
 // upon loading our app.js script
-// init() // the function call
+init() // the function call
 
 // function declarations
-const init = () => {
+function init() {
 console.log("init working")
 gameOver = false;
 timer = setInterval(runGame, 2000)
@@ -47,13 +47,25 @@ render()
 }
 
 function runGame() {
-    console.log('game running')
+    // console.log('game running')
+    updateStates()
 }
 
 function render(){
     console.log('content rendering')
 }
 
+function updateStates() {
+    // we need to target the global state properties
+    console.log(state)
+    state.boredom += randomInt()
+    state.hunger += randomInt()
+    state.sleepiness += randomInt()
+}
+
+function randomInt() {
+    return Math.floor(Math.random() * 4)
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
 
